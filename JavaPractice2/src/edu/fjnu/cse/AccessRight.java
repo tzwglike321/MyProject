@@ -14,22 +14,18 @@ public class AccessRight {
 	}
 	
 	public int getPub(){
-		
 		return pu;
 	}
 	
 	private int getPri(){
-		
 		return pr;
 	}
 	
 	protected int getPro(){
-		
 		return po;
 	}
 	
 	int getDef(){
-		
 		return de;
 	}
 	
@@ -45,6 +41,5 @@ public class AccessRight {
 		System.out.println(p3);
 		p4 = arr.getDef();
 		System.out.println(p4);
-		
 	}
 }
