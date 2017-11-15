@@ -20,4 +20,12 @@
 * [两个队列情况](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/fcfs_img/p8.png)图片8
 * [两个队列情况](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/fcfs_img/p9.png)图片9
 # SJF:
+https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p1.png
 > SJF算法首先调度已到达的任务中，服务时间最短的任务，这里不要求实现任务的抢占,按照FCFS算法的要求实现SJF算法. 同样要求处理两种情况： 当只有一个处理队列时的情况 当有两个处理队列时的情况
+* [一个队列情况](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p1.png)图片1
+* [一个队列情况](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p2.png)图片2
+* [一个队列情况结束和两个队列情况开始](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p3.png)图片3
+* [两个队列情况](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p4.png)图片4
+* [两个队列情况](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p5.png)图片5
+* [两个队列情况](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p6.png)图片6
+* [两个队列情况](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p7.png)图片7
