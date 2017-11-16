@@ -1,30 +1,30 @@
 # FCFS:
-## FCFSËã·¨°´ÕÕÈÎÎñµ½´ïµÄË³Ğò½øĞĞ·şÎñ£¬ÏÈÀ´ÏÈ·şÎñ 
-## Ã¿¸öTask¶ÔÏó¿ÉÒÔÃèÊöÎªÖÁÉÙ°üº¬ÏÂÁĞÊôĞÔ£º 
-> * taskID //ÈÎÎñID 
-> * arrivalTime //µ½´ïÊ±¼ä 
-> * serviceTime //·şÎñÊ±¼ä 
-> * startingTime //¿ªÊ¼Ê±¼ä 
-> * finishingTime //Íê³ÉÊ±¼ä=¿ªÊ¼Ê±¼ä+·şÎñÊ±¼ä 
-> * turnAroundTime //ÖÜ×ªÊ±¼ä=Íê³ÉÊ±¼ä-´ïµ½Ê±¼ä 
-> * weightTurnAround //´øÈ¨ÖÜ×ªÊ±¼ä=ÖÜ×ªÊ±¼ä/·şÎñÊ±¼ä 
-> * ÈÎÎñ(Task)µÄID¡¢¿ªÊ¼Ê±¼äºÍ·şÎñÊ±¼äÓÉÎÄ¼ş¶ÁÈë£¬ĞÎÈç"taskID µ½´ïÊ±¼ä ·şÎñÊ±¼ä"¡£Õâ¸öÈÎÎñÁĞ±íÎÄ¼şÊ×ÏÈÓÉ³ÌĞòÉú³É£¬Ã¿ÃëÒ»¸öÈÎÎñ´ïµ½£¬·şÎñÊ±¼äÓÉ        {6,2,1,3,9}Õâ¸ö¼¯ºÏÖĞµÄÊı¾İËæ»ú»ñÈ¡¡£ÎÄ¼şÁĞ±íÒª°üº¬ÖÁÉÙ100¸öÈÎÎñ¡£ ÊµÏÖÈçÏÂÒªÇóµÄFCFS µ±Ö»ÓĞÒ»¸ö´¦Àí¶ÓÁĞÊ±µÄÇé¿ö µ±ÓĞÁ½¸ö´¦Àí¶ÓÁĞÊ±µÄÇé¿ö.
-## ÔËĞĞ½ØÍ¼
-* [Ò»¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/fcfs_img/p1.png)Í¼Æ¬1
-* [Ò»¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/fcfs_img/p2.png)Í¼Æ¬2
-* [Ò»¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/fcfs_img/p3.png)Í¼Æ¬3
-* [Ò»¸ö¶ÓÁĞÇé¿ö½áÊøºÍÁ½¸ö¶ÓÁĞÇé¿ö¿ªÊ¼](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/fcfs_img/p4.png)Í¼Æ¬4
-* [Á½¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/fcfs_img/p5.png)Í¼Æ¬5
-* [Á½¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/fcfs_img/p6.png)Í¼Æ¬6
-* [Á½¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/fcfs_img/p7.png)Í¼Æ¬7
-* [Á½¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/fcfs_img/p8.png)Í¼Æ¬8
-* [Á½¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/fcfs_img/p9.png)Í¼Æ¬9
+## FCFSç®—æ³•æŒ‰ç…§ä»»åŠ¡åˆ°è¾¾çš„é¡ºåºè¿›è¡ŒæœåŠ¡ï¼Œå…ˆæ¥å…ˆæœåŠ¡ 
+## æ¯ä¸ªTaskå¯¹è±¡å¯ä»¥æè¿°ä¸ºè‡³å°‘åŒ…å«ä¸‹åˆ—å±æ€§ï¼š 
+> * taskID //ä»»åŠ¡ID 
+> * arrivalTime //åˆ°è¾¾æ—¶é—´ 
+> * serviceTime //æœåŠ¡æ—¶é—´ 
+> * startingTime //å¼€å§‹æ—¶é—´ 
+> * finishingTime //å®Œæˆæ—¶é—´=å¼€å§‹æ—¶é—´+æœåŠ¡æ—¶é—´ 
+> * turnAroundTime //å‘¨è½¬æ—¶é—´=å®Œæˆæ—¶é—´-è¾¾åˆ°æ—¶é—´ 
+> * weightTurnAround //å¸¦æƒå‘¨è½¬æ—¶é—´=å‘¨è½¬æ—¶é—´/æœåŠ¡æ—¶é—´ 
+> * ä»»åŠ¡(Task)çš„IDã€å¼€å§‹æ—¶é—´å’ŒæœåŠ¡æ—¶é—´ç”±æ–‡ä»¶è¯»å…¥ï¼Œå½¢å¦‚"taskID åˆ°è¾¾æ—¶é—´ æœåŠ¡æ—¶é—´"ã€‚è¿™ä¸ªä»»åŠ¡åˆ—è¡¨æ–‡ä»¶é¦–å…ˆç”±ç¨‹åºç”Ÿæˆï¼Œæ¯ç§’ä¸€ä¸ªä»»åŠ¡è¾¾åˆ°ï¼ŒæœåŠ¡æ—¶é—´ç”±        {6,2,1,3,9}è¿™ä¸ªé›†åˆä¸­çš„æ•°æ®éšæœºè·å–ã€‚æ–‡ä»¶åˆ—è¡¨è¦åŒ…å«è‡³å°‘100ä¸ªä»»åŠ¡ã€‚ å®ç°å¦‚ä¸‹è¦æ±‚çš„FCFS å½“åªæœ‰ä¸€ä¸ªå¤„ç†é˜Ÿåˆ—æ—¶çš„æƒ…å†µ å½“æœ‰ä¸¤ä¸ªå¤„ç†é˜Ÿåˆ—æ—¶çš„æƒ…å†µ.
+## è¿è¡Œæˆªå›¾
+* [ä¸€ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice3_img/fcfs_img/p1.png)å›¾ç‰‡1
+* [ä¸€ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice3_img/fcfs_img/p2.png)å›¾ç‰‡2
+* [ä¸€ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice3_img/fcfs_img/p3.png)å›¾ç‰‡3
+* [ä¸€ä¸ªé˜Ÿåˆ—æƒ…å†µç»“æŸå’Œä¸¤ä¸ªé˜Ÿåˆ—æƒ…å†µå¼€å§‹](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice3_img/fcfs_img/p4.png)å›¾ç‰‡4
+* [ä¸¤ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice3_img/fcfs_img/p5.png)å›¾ç‰‡5
+* [ä¸¤ä¸ªé˜Ÿåˆ—æƒ…å†µ]https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice3_img/fcfs_img/p6.png)å›¾ç‰‡6
+* [ä¸¤ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice3_img/fcfs_img/p7.png)å›¾ç‰‡7
+* [ä¸¤ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice3_img/fcfs_img/p8.png)å›¾ç‰‡8
+* [ä¸¤ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice3_img/fcfs_img/p9.png)å›¾ç‰‡9
 # SJF:
-> SJFËã·¨Ê×ÏÈµ÷¶ÈÒÑµ½´ïµÄÈÎÎñÖĞ£¬·şÎñÊ±¼ä×î¶ÌµÄÈÎÎñ£¬ÕâÀï²»ÒªÇóÊµÏÖÈÎÎñµÄÇÀÕ¼,°´ÕÕFCFSËã·¨µÄÒªÇóÊµÏÖSJFËã·¨. Í¬ÑùÒªÇó´¦ÀíÁ½ÖÖÇé¿ö£º µ±Ö»ÓĞÒ»¸ö´¦Àí¶ÓÁĞÊ±µÄÇé¿ö µ±ÓĞÁ½¸ö´¦Àí¶ÓÁĞÊ±µÄÇé¿ö
-* [Ò»¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p1.png)Í¼Æ¬1
-* [Ò»¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p2.png)Í¼Æ¬2
-* [Ò»¸ö¶ÓÁĞÇé¿ö½áÊøºÍÁ½¸ö¶ÓÁĞÇé¿ö¿ªÊ¼](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p3.png)Í¼Æ¬3
-* [Á½¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p4.png)Í¼Æ¬4
-* [Á½¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p5.png)Í¼Æ¬5
-* [Á½¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p6.png)Í¼Æ¬6
-* [Á½¸ö¶ÓÁĞÇé¿ö](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p7.png)Í¼Æ¬7
+> SJFç®—æ³•é¦–å…ˆè°ƒåº¦å·²åˆ°è¾¾çš„ä»»åŠ¡ä¸­ï¼ŒæœåŠ¡æ—¶é—´æœ€çŸ­çš„ä»»åŠ¡ï¼Œè¿™é‡Œä¸è¦æ±‚å®ç°ä»»åŠ¡çš„æŠ¢å ,æŒ‰ç…§FCFSç®—æ³•çš„è¦æ±‚å®ç°SJFç®—æ³•. åŒæ ·è¦æ±‚å¤„ç†ä¸¤ç§æƒ…å†µï¼š å½“åªæœ‰ä¸€ä¸ªå¤„ç†é˜Ÿåˆ—æ—¶çš„æƒ…å†µ å½“æœ‰ä¸¤ä¸ªå¤„ç†é˜Ÿåˆ—æ—¶çš„æƒ…å†µ
+* [ä¸€ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p1.png)å›¾ç‰‡1
+* [ä¸€ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p2.png)å›¾ç‰‡2
+* [ä¸€ä¸ªé˜Ÿåˆ—æƒ…å†µç»“æŸå’Œä¸¤ä¸ªé˜Ÿåˆ—æƒ…å†µå¼€å§‹](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p3.png)å›¾ç‰‡3
+* [ä¸¤ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p4.png)å›¾ç‰‡4
+* [ä¸¤ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p5.png)å›¾ç‰‡5
+* [ä¸¤ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p6.png)å›¾ç‰‡6
+* [ä¸¤ä¸ªé˜Ÿåˆ—æƒ…å†µ](https://github.com/tzwglike321/MyProject/blob/master/JavaPractice3/sjf_img/p7.png)å›¾ç‰‡7
