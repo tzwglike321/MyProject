@@ -1,13 +1,13 @@
 package FCFS;
 
 public class Task {
-	int taskID; //ÈÎÎñID
-	int arrivalTime;//µ½´ïÊ±¼ä
-	int serviceTime;//·şÎñÊ±¼ä
-	int  startingTime;//¿ªÊ¼Ê±¼ä
-	int finishingTime;//Íê³ÉÊ±¼ä=¿ªÊ¼Ê±¼ä+·şÎñÊ±¼ä
-	int turnAroundTime;//ÖÜ×ªÊ±¼ä=Íê³ÉÊ±¼ä-´ïµ½Ê±¼ä
-	double weightTurnAround;//´øÈ¨ÖÜ×ªÊ±¼ä=ÖÜ×ªÊ±¼ä/·şÎñÊ±¼ä 
+	int taskID; //ä»»åŠ¡ID
+	int arrivalTime;//åˆ°è¾¾æ—¶é—´
+	int serviceTime;//æœåŠ¡æ—¶é—´
+	int  startingTime;//å¼€å§‹æ—¶é—´
+	int finishingTime;//å®Œæˆæ—¶é—´=å¼€å§‹æ—¶é—´+æœåŠ¡æ—¶é—´
+	int turnAroundTime;//å‘¨è½¬æ—¶é—´=å®Œæˆæ—¶é—´-è¾¾åˆ°æ—¶é—´
+	double weightTurnAround;//å¸¦æƒå‘¨è½¬æ—¶é—´=å‘¨è½¬æ—¶é—´/æœåŠ¡æ—¶é—´ 
 	
 	public void setTask(int taskID,int arrivalTime,int serviceTime){
 		this.taskID = taskID;

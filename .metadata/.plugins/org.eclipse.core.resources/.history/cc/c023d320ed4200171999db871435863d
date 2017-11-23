@@ -1,0 +1,50 @@
+package eee;
+import java.awt.*;
+import javax.swing.*;
+public class TestUI1 {
+	/*public static void main(String []arg){
+		JFrame j=new JFrame();
+		j.setSize(400, 300);
+        j.setLocation(200, 200);
+        JMenuBar m1=new JMenuBar();
+        m1.setLayout(new GridLayout(8,1));
+        JMenu b1=new JMenu("系统首页");
+        JMenu b2=new JMenu("用户管理");
+        JMenu b3=new JMenu("订单管理");
+        JMenu b4=new JMenu("状态管理");
+        JMenu b5=new JMenu("我的信息");
+        JMenu b6=new JMenu("退出后台");
+        JMenuItem i31=new JMenuItem("添加订单");
+        JMenuItem i32=new JMenuItem("订单列表");
+        JMenuItem i41=new JMenuItem("订单状态");
+        JMenuItem i51=new JMenuItem("我的质料");
+        b3.add(i31);
+        b3.add(i32);
+        b4.add(i41);
+        b5.add(i51);
+        m1.add(b1);
+        m1.add(b2);
+        m1.add(b3);
+        m1.add(b4);
+        m1.add(b5);
+        m1.add(b6);
+        j.setJMenuBar(m1);
+        j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        j.setVisible(true);
+	}*/
+	 public static void main(String[] args) {
+         
+	        //普通的窗体，带最大和最小化按钮
+	        JDialog d = new JDialog();
+	        d.setTitle("LOL");
+	        d.setSize(400, 300);
+	        d.setLocation(200, 200);
+	        d.setLayout(null);
+	        JButton b = new JButton("一键秒对方基地挂");
+	        b.setBounds(50, 50, 280, 30);
+	 
+	        d.add(b);
+	 
+	        d.setVisible(true);
+	    }
+}

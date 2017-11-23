@@ -1,0 +1,30 @@
+package fjnu;
+
+public class FileInformation {
+	String name;
+	String date;
+	long length = 0;
+	
+	public FileInformation(String name,String date,long length){
+		this.name = name;
+		this.date = date;
+		this.length = length;
+	}
+	
+	public FileInformation(String name,String date){
+		this.name = name;
+		this.date = date;
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public String getDate(){
+		return this.date;
+	}
+	
+	public long getLength(){
+		return this.length;
+	}
+}

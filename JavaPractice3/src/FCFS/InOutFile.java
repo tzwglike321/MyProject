@@ -4,10 +4,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Random;
+import java.util.Scanner;
+
 public class InOutFile {
-	int taskNum = 100;//任务个数
-	int []serveTime = {6,2,1,3,9};//服务时间数据
-	int [][]getTime = new int [taskNum][3];//获取文件数据
+	int taskNum = 100;//浠诲姟涓暟
+	int []serveTime = {6,2,1,3,9};//鏈嶅姟鏃堕棿鏁版嵁
+	int [][]getTime = new int [taskNum][3];//鑾峰彇鏂囦欢鏁版嵁
 	
 	public void writeFile(){
 		try{
@@ -28,20 +30,28 @@ public class InOutFile {
 	
 	public int [][]readFile(){
 		try {
-			File task =new File("task.txt");
-			FileReader fr =new FileReader(task);
-			BufferedReader br = new BufferedReader(fr);
+			//File task =new File("task.txt");
+			File task =new File("input.txt");
+			//FileReader fr =new FileReader(task);
+			Scanner sc = new Scanner(task);
+			//BufferedReader br = new BufferedReader(fr);
 			String str = null;
-			int row =0;//行数
-			while ((str = br.readLine())!= null){
-				String []arr = str.split(" ");
-				for(int i = 0;i < arr.length;i++)
+			int row =0;//锟斤拷锟斤拷
+			while (sc.hasNext()){
+				
+				//String []arr = str.split(" ");
+				for(int i = 0;i < 3;i++)
 					{
-						int tmp = Integer.parseInt(arr[i]);
-						getTime[row][i] = tmp;
+						int tmp=0;
+						if(sc.hasNext()){
+							tmp = sc.nextInt();
+							getTime[row][i] = tmp;
+						}
+						else break;
+						
 					}
 						row++;	
-		
+				
 			}
 			/*for(int i = 0;i < taskNum;i++)
 				for(int j = 0;j < 3;j++)

@@ -1,0 +1,34 @@
+package fjnu;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class FileInformation {
+	public static void main(String []args){
+		
+		System.out.println("Enter the solute:");
+		Scanner scan = new Scanner(System.in);
+		String str = scan.nextLine();
+		//File file1 = new File("I:");
+		File file1 = new File(str);
+		String []list;
+		list = file1.list();
+		for(int i = 0;i < list.length;i++){
+			//System.out.println(list[i]);
+			File file2 = new File(str+"\\"+list[i]);
+			if(file2.exists()){
+				if(file2.isFile()){
+					System.out.println(list[i] + "	修改日期：" + file2.lastModified() + "	文件大小：" + file2.length() +"字节");
+				}
+				else{
+					System.out.println(list[i] + "	修改日期：" + file2.lastModified());
+				}
+			}
+			else{
+				System.out.println("文件或文件夹不存在！");
+			}
+			
+		}
+		
+	}
+}

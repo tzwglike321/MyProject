@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.text.DecimalFormat; 
 
 public class TwoQueue {
-	int [][]getTask;//»ñÈ¡ÎÄ¼şÀïÃæÈÎÎñĞÅÏ¢
+	int [][]getTask;//è·å–æ–‡ä»¶é‡Œé¢ä»»åŠ¡ä¿¡æ¯
 	InOutFile file1;
 	ArrayList<Task> list = new ArrayList<Task>();
 	ArrayList<Task> list1 = new ArrayList<Task>();
 	ArrayList<Task> list2 = new ArrayList<Task>();
 	
-	public void listAdd(){//list»ñÈ¡task¶ÓÁĞ
+	public void listAdd(){//listè·å–taské˜Ÿåˆ—
 		file1 = new InOutFile();
-		if(!file1.fileExist())
-			file1.writeFile();
+		/*if(!file1.fileExist())
+			file1.writeFile();*/
 		getTask = file1.readFile();
 		for(int i = 0;i < getTask.length;i++)
 		{
@@ -27,8 +27,8 @@ public class TwoQueue {
 	public void beginTwoQueue(){
 		int i = 0;
 		int numOfList = 0;
-		int tmpTime1 = 0;//±£´æµ±Ç°Íê³ÉÊ±¼ä×÷ÎªÏÂÒ»¸öµÄ¿ªÊ¼Ê±¼ä
-		int tmpTime2 = 0;//±£´æµ±Ç°Íê³ÉÊ±¼ä×÷ÎªÏÂÒ»¸öµÄ¿ªÊ¼Ê±¼ä
+		int tmpTime1 = 0;//ä¿å­˜å½“å‰å®Œæˆæ—¶é—´ä½œä¸ºä¸‹ä¸€ä¸ªçš„å¼€å§‹æ—¶é—´
+		int tmpTime2 = 0;//ä¿å­˜å½“å‰å®Œæˆæ—¶é—´ä½œä¸ºä¸‹ä¸€ä¸ªçš„å¼€å§‹æ—¶é—´
 		int lastOfLis1 = 0;
 		int lastOfLis2 = 0;
 		do{
@@ -40,16 +40,16 @@ public class TwoQueue {
 				Task tmp1 = new Task();
 				tmp1 = list1.get(i);
 				tmp1.calculateTime(0);
-				list1.set(i, tmp1);//list1Ìí¼ÓµÚÒ»¸ötask¶ÔÏó
+				list1.set(i, tmp1);//list1æ·»åŠ ç¬¬ä¸€ä¸ªtaskå¯¹è±¡
 				
 				Task tmp2 = new Task();
 				tmp2 = list2.get(i);
 				tmp2.calculateTime(1);
-				list2.set(i, tmp2);//list2Ìí¼ÓµÚÒ»¸ötask¶ÔÏó
-				if(list1.get(i).finishingTime < list2.get(i).finishingTime){//±È½ÏfinshTime,Ë­Ğ¡¾ÍÌí¼ÓÒ»¸öĞÂµÄtask¶ÔÏó
+				list2.set(i, tmp2);//list2æ·»åŠ ç¬¬ä¸€ä¸ªtaskå¯¹è±¡
+				if(list1.get(i).finishingTime < list2.get(i).finishingTime){///æ¯”è¾ƒfinshTime,è°å°å°±æ·»åŠ ä¸€ä¸ªæ–°çš„taskå¯¹è±¡
 					numOfList++;//2
 					list1.add(list.get(numOfList));
-					tmpTime1 = list1.get(i).finishingTime;//»ñÈ¡µ±Ç°¶ÓÁĞÉÏÒ»¸öfinishTime×÷ÎªĞÂÌí¼Ó¶ÔÏóµÄstartTime
+					tmpTime1 = list1.get(i).finishingTime;///è·å–å½“å‰é˜Ÿåˆ—ä¸Šä¸€ä¸ªfinishTimeä½œä¸ºæ–°æ·»åŠ å¯¹è±¡çš„startTime
 					//
 					lastOfLis1 = list1.size() -1;
 					Task tmp = new Task();
@@ -101,7 +101,7 @@ public class TwoQueue {
 	
 	public void showQueue(){
 		DecimalFormat df = new DecimalFormat( "0.00");
-		System.out.println("·Ö¶ÓÁĞ1"+" "+"¿ªÊ¼Ê±¼ä"+" "+"·şÎñÊ±¼ä"+" "+"Íê³ÉÊ±¼ä"+" "+"ÖÜ×ªÊ±¼ä"+" "+"´øÈ¨ÖÜ×ªÊ±¼ä");
+		System.out.println("åˆ†é˜Ÿåˆ—1"+" "+"å¼€å§‹æ—¶é—´"+" "+"æœåŠ¡æ—¶é—´"+" "+"å®Œæˆæ—¶é—´"+" "+"å‘¨è½¬æ—¶é—´"+" "+"å¸¦æƒå‘¨è½¬æ—¶é—´");
 		for(int i = 0;i < list1.size();i++){
 			Task tmp = new Task();
 			tmp = list1.get(i);
@@ -112,7 +112,7 @@ public class TwoQueue {
 					   +tmp.turnAroundTime+"    "
 					   +df.format(tmp.weightTurnAround));
 		}
-		System.out.println("·Ö¶ÓÁĞ2"+" "+"¿ªÊ¼Ê±¼ä"+" "+"·şÎñÊ±¼ä"+" "+"Íê³ÉÊ±¼ä"+" "+"ÖÜ×ªÊ±¼ä"+" "+"´øÈ¨ÖÜ×ªÊ±¼ä");
+		System.out.println("åˆ†é˜Ÿåˆ—2"+" "+"å¼€å§‹æ—¶é—´"+" "+"æœåŠ¡æ—¶é—´"+" "+"å®Œæˆæ—¶é—´"+" "+"å‘¨è½¬æ—¶é—´"+" "+"å¸¦æƒå‘¨è½¬æ—¶é—´");
 		for(int j = 0;j < list2.size();j++){
 			Task tmp = new Task();
 			tmp = list2.get(j);

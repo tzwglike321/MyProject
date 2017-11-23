@@ -1,0 +1,180 @@
+package antColony;
+import java.lang.Math;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Random;
+public class SolutionSpace {
+	//定义各种参数
+	int AntNum;	//蚂蚁数量
+	int SpaceNum; //解空间大小
+	double []w;	//权重数组
+	double []p;	//概率数组
+	int Sum; //已有解数
+	int Rn;  //R的规模
+	int On;	 //O的规模
+	int Cn;	 //C的规模
+	double q;  //算法参数q
+	
+	public double [][]Space;
+	//定义三个不同类的对象
+	Continuous R ;//连续变量R的对象
+	Ordinal O;	//有序变量O的对象
+	Categorical C;//分类变量C的对象
+	public SolutionSpace(int r,int o,int c,int k,int m,double q,double e,double Rstart,double Rend,
+			int []NumO,double [][]ValueO,int MaxO,int MaxC,int []ValueNumC,double [][]ValueC){	//构造函数
+		AntNum = m;
+		SpaceNum = k;
+		w = new double[AntNum + SpaceNum];
+		p = new double[AntNum + SpaceNum];
+		Sum = SpaceNum;
+		Rn = r;
+		On = o;
+		Cn = c;
+		this.q = q;
+		Space = new double[AntNum + SpaceNum][Rn + On + Cn];
+		R = new Continuous(r,0,Rn,m,k,e,Rstart,Rend);
+		O = new Ordinal(o,Rn,Rn+On,m,k,e,NumO,ValueO,MaxO);
+		C = new Categorical(c,Rn+On,Rn+On+Cn,m,k,q,ValueC,ValueNumC,MaxC);
+		
+	}
+
+	public void UpdateW(){  //更新权重w数组
+		//先排序，然后根据下标+1取排名值
+		Sort();
+		for(int j = 0;j < SpaceNum;j++){
+			// j + 1 是rank排名值
+			w[j] = (1.0 / (q * SpaceNum * Math.sqrt(2*Math.PI))) * Math.exp(-Math.pow(((j + 1) - 1),2) / 2 * Math.pow(q, 2) * Math.pow(SpaceNum, 2));
+		}
+	}
+	public void UpdateP(){	//更新概率p数组
+		double sum = 0;
+		//先算总和
+		for(int j = 0;j < SpaceNum;j++){
+			sum += w[j];
+		}
+
+		//再分别算概率
+		for(int j = 0;j < SpaceNum;j++){
+			p[j] = w[j] / sum;
+		}
+	}
+	public void Sort(){		//排序函数
+		//通过定义排序sort函数来让系统知道谁更大
+		Arrays.sort(Space, 0, Sum, new Comparator<Object>() {    
+            public int compare(Object o1, Object o2) {    
+                double[] one = (double[]) o1;    
+                double[] two = (double[]) o2;    
+                double fOne = f(one),fTwo = f(two);
+                if (fOne > fTwo) {    
+                    return 1;    
+                }else if(fOne < fTwo)   
+                    return -1;    
+                else
+                	return 0;    
+            }    
+        });   
+	}
+	public void Best(int k){		//取前多少最佳的值
+		Sum = k;//取前k个有效值
+	}
+	//圆盘赌法操作
+	public int Choose(){	//选择一个解操作
+		Random a = new Random();
+		double seed = a.nextDouble();
+		int x = 0;
+		double tempUp = p[0],tempDown = 0;
+		for(int i = 0;i < SpaceNum;i++){		
+			if(tempDown < seed && seed <= tempUp){
+				x = i;
+				break;
+			}
+			tempDown += p[i];
+			if(i + 1 == SpaceNum){
+				tempUp = 1;
+			}else{
+				tempUp += p[i+1];
+			}
+		}
+		return x;
+	}
+	public boolean Construct(){	//构造一个新解
+
+		int oldLine = Choose(),newline = Sum;
+		if(newline > SpaceNum + AntNum) 
+			return false;
+		R.ConstructR(newline,oldLine,this);
+		O.ConstructO(newline,oldLine,this);
+		C.ConstructC(newline,this);
+		
+		Sum++;
+		return true;
+	}
+	//评价函数f
+
+	public double f(double []d){
+		int Beta = 5;
+		double result = 0;
+		for(int i = 0;i < Rn + On + Cn;i++){
+			//累加
+			result += Math.pow(Math.pow(Beta,((double)i/ (Rn + On + Cn - 1)))*d[i], 2);
+		}
+		return result;
+	}  
+	
+	//修改二维数组中元素的值
+	public void Change(int line,int position,double value){
+		Space[line][position] = value;
+	}
+	//读取二维数组中元素的值
+	public double ReadSpace(int line,int position){
+		return Space[line][position];
+	}
+	public double ReadW(int line){
+		return w[line];
+	}
+	//读取目前解的个数
+	public int GetSum(){
+		return Sum;
+	}
+	//插入初始解时使用
+	public void Insert(double [][]Map){
+		for(int i = 0;i < SpaceNum;i++){
+			for(int j = 0;j < Rn+ On + Cn;j++){
+				Space[i][j] = Map[i][j];
+			}
+		}
+		UpdateW();
+		UpdateP();
+	}
+	public double[] GetLine(int line){
+		return Space[line];
+	}
+	public void print(){
+		System.out.println("R\tO\tC\tf");
+		for(int i = 0;i < Sum;i++){
+			
+			for(int j = 0;j < Rn+On+Cn;j++){
+				System.out.printf("%.3f\t",Space[i][j]);
+			}
+			System.out.print(f(Space[i]));
+			System.out.print("\n");
+		}
+		
+	}
+	public void InitiliazeSpace(){
+		R.InitiliazeSpaceR(this);
+		O.InitiliazeSpaceO(this);
+		C.InitiliazeSpaceC(this);
+	}
+	public void PrintGeneration(int generation){
+		System.out.print("第"+ (generation + 1) + "代最佳:");
+		for(int j = 0;j < Rn+On+Cn;j++){
+		//	System.out.printf("%f\t",Space[0][j]);
+			System.out.print(Space[0][j]+"\t");
+		}
+		System.out.print(f(Space[0]));
+		System.out.print("\n");
+	}
+}
+
+

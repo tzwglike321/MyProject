@@ -1,0 +1,61 @@
+package eee;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.JDialog;
+import javax.swing.border.EmptyBorder;
+//import javax.swing.JLabel;
+public class TestProject1 {
+	public static void main(String []arg){
+	JDialog j=new JDialog();
+	j.setTitle("蚁群算法");
+	j.setSize(500, 500);
+	JDialog d = new JDialog();
+	JPanel p1=new JPanel();
+	JPanel p2=new JPanel();
+	JPanel p3=new JPanel();
+	JPanel p4=new JPanel();
+	JLabel l1=new JLabel("k值:");
+	JLabel l2=new JLabel("β值:");
+	JLabel l3=new JLabel("m值:");
+	JLabel l4=new JLabel("ξ值:");
+	JLabel l5=new JLabel("q值:");
+	JLabel l6=new JLabel("j值:");
+	JTextField t1=new JTextField();
+	JTextField t2=new JTextField();
+	JTextField t3=new JTextField();
+	JTextField t4=new JTextField();
+	JTextField t5=new JTextField();
+	JTextField t6=new JTextField();
+	
+	p1.setLayout(new GridLayout(3,4,10,10));
+	p1.setBorder(new EmptyBorder(40, 40, 40, 40));
+	p1.add(l1);
+	p1.add(t1);
+	p1.add(l2);
+	p1.add(t2);
+	//p2.setLayout(new FlowLayout());
+	p1.add(l3);
+	p1.add(t3);
+	p1.add(l4);
+	p1.add(t4);
+	//p3.setLayout(new FlowLayout());
+	p1.add(l5);
+	p1.add(t5);
+	p1.add(l6);
+	p1.add(t6);
+	JButton b1=new JButton("初始化");
+	JButton b2=new JButton("开始运行");
+	b1.setPreferredSize(new Dimension(100,40));
+	b2.setPreferredSize(new Dimension(100,40));
+	p2.setLayout(new FlowLayout());
+	p2.add(b1);
+	p2.add(b2);
+	j.setLayout(new BorderLayout());
+	j.add(p1,BorderLayout.NORTH);
+	j.add(p2,BorderLayout.CENTER);
+	//j.add(p3,BorderLayout.NORTH);
+	//j.add(p4,BorderLayout.CENTER);
+	j.setLocationRelativeTo(null);
+	j.setVisible(true);
+}
+}

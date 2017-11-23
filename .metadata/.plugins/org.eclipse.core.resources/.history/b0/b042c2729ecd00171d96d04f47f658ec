@@ -1,0 +1,38 @@
+package fjnu;
+
+import java.io.*;
+import java.util.*;
+
+public class FlattenStudent {
+	public static void main(String []args){
+		File file = new File("list.txt");
+		ArrayList<Student> List = new ArrayList<Student>();
+		try{
+			//FileInputStream finS = new FileInputStream(file);
+			//DataInputStream inDataFile = new DataInputStream(finS);
+			//inDataFile.rea
+			FileReader filR = new FileReader(file);
+			BufferedReader bufR = new BufferedReader(filR);
+			String str;
+			while((str = bufR.readLine()) != null){
+				String []tmp = str.split(" ");
+				int i = 0;
+				for(String a:tmp){
+					i++;
+					System.out.print(a+" ");
+					if(i == 3){
+						System.out.print("\n");
+						i = 0;
+					}
+				}	
+			}
+			bufR.close();
+			filR.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+
+		
+	}
+}

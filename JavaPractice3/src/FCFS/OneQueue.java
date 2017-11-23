@@ -4,14 +4,14 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class OneQueue {
-	int [][]getTask;//»ñÈ¡ÎÄ¼şÀïÃæÈÎÎñĞÅÏ¢
+	int [][]getTask;//è·å–æ–‡ä»¶é‡Œé¢ä»»åŠ¡ä¿¡æ¯
 	InOutFile file1;
 	ArrayList<Task> list1 = new ArrayList<Task>();
 	
-	public void listAdd(){//arraylist»ñÈ¡task¶ÓÁĞ
+	public void listAdd(){//arraylistè·å–taské˜Ÿåˆ—
 		file1 = new InOutFile();
-		if(!file1.fileExist())
-			file1.writeFile();
+		/*if(!file1.fileExist())
+			file1.writeFile();*/
 		getTask = file1.readFile();
 		for(int i = 0;i < getTask.length;i++)
 		{
@@ -25,23 +25,23 @@ public class OneQueue {
 	public void beginQueue(){
 		for(int i = 0;i < list1.size();i++){
 			Task tmp = list1.get(i);
-			if(i == 0) tmp.calculateTime(0);//¸ù¾İ¿ªÊ¼Ê±¼ä£¬¼ÆËãÆäËüÊ±¼ä
+			if(i == 0) tmp.calculateTime(0);//æ ¹æ®å¼€å§‹æ—¶é—´ï¼Œè®¡ç®—å…¶å®ƒæ—¶é—´
 			else tmp.calculateTime(list1.get(i - 1).finishingTime);
-			list1.set(i, tmp);//¸üĞÂtask¶ÔÏó
+			list1.set(i, tmp);//æ›´æ–°taskå¯¹è±¡
 //			System.out.println(tmp.startingTime+" "+tmp.serviceTime+" "+tmp.finishingTime+" "+tmp.turnAroundTime+" "+tmp.weightTurnAround);
 		}
 	}
 	
 	public void showQueue(){
 		DecimalFormat df = new DecimalFormat( "0.00");
-		System.out.println("taskID"+" "+"¿ªÊ¼Ê±¼ä"+" "+"·şÎñÊ±¼ä"+" "+"Íê³ÉÊ±¼ä"+" "+"ÖÜ×ªÊ±¼ä"+" "+"´øÈ¨ÖÜ×ªÊ±¼ä");
+		System.out.println("taskID"+" "+"å¼€å§‹æ—¶é—´"+" "+"æœåŠ¡æ—¶é—´"+" "+"å®Œæˆæ—¶é—´"+" "+"å‘¨è½¬æ—¶é—´"+" "+"å¸¦æƒå‘¨è½¬æ—¶é—´");
 		for(int i = 0;i < list1.size();i++){
 			Task tmp = new Task();
 			tmp = list1.get(i);
 			System.out.println(tmp.taskID+"	"  
 					   +tmp.startingTime+"   "
-					   +tmp.serviceTime+"	"
-					   +tmp.finishingTime+"	"
+					   +tmp.serviceTime+"	    "
+					   +tmp.finishingTime+"	  "
 					   +tmp.turnAroundTime+"    "
 					   +df.format(tmp.weightTurnAround));
 		}

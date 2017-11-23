@@ -1,0 +1,46 @@
+package fjnu;
+
+import java.util.Collections;
+import java.util.Comparator;
+
+
+public class FileInformation implements Comparable<FileInformation>{
+	String name;
+	String date;
+	long length = 0;
+	
+	public FileInformation(String name,String date,long length){
+		this.name = name;
+		this.date = date;
+		this.length = length;
+	}
+	
+	public FileInformation(String name,String date){
+		this.name = name;
+		this.date = date;
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public String getDate(){
+		return this.date;
+	}
+	
+	public long getLength(){
+		return this.length;
+	}
+	
+	public int compareTo(FileInformation f){
+		if(this.getName().compareTo(f.getName()) > 0){
+			return 1;
+		}
+		else if(this.getName().compareTo(f.getName()) < 0){
+			return -1;
+		}
+		else{
+			return 0;
+		}
+	}
+}

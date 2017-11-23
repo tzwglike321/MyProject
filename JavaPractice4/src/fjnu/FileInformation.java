@@ -2,12 +2,13 @@ package fjnu;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.text.Collator;
+import java.util.Locale;
 
-
-public class FileInformation implements Comparable<FileInformation>{//获取文件信息的对象
-	String name;//文件/文件名
-	String date;//修改时间
-	long length = 0;//文件大小
+public class FileInformation implements Comparable<FileInformation>{//锟斤拷取锟侥硷拷锟斤拷息锟侥讹拷锟斤拷
+	String name;//锟侥硷拷/锟侥硷拷锟斤拷
+	String date;//锟睫革拷时锟斤拷
+	long length = 0;//锟侥硷拷锟斤拷小
 	
 	public void setFile(String name,String date,long length){
 		this.name = name;
@@ -32,7 +33,7 @@ public class FileInformation implements Comparable<FileInformation>{//获取文件信
 		return this.length;
 	}
 	
-	public int compareTo(FileInformation f){//重构比较函数
+	public int compareTo(FileInformation f){//锟截癸拷锟饺较猴拷锟斤拷
 		if(this.getName().compareTo(f.getName()) > 0){
 			return 1;
 		}
@@ -42,5 +43,9 @@ public class FileInformation implements Comparable<FileInformation>{//获取文件信
 		else{
 			return 0;
 		}
+		/*Collator instance = Collator.getInstance(Locale.CHINA);
+		return instance.compare(this.name,f.name);
+		 * 
+		 */
 	}
 }

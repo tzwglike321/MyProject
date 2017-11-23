@@ -3,71 +3,71 @@ package fjnu;
 import java.io.*;
 import java.util.*;
 
-public class GetFileTree {//»ñÈ¡Ä³¸öÄ¿Â¼ÏÂµÄÄ¿Â¼ĞÅÏ¢
+public class GetFileTree {//ï¿½ï¿½È¡Ä³ï¿½ï¿½Ä¿Â¼ï¿½Âµï¿½Ä¿Â¼ï¿½ï¿½Ï¢
 	public static void main(String []args){
 		System.out.println("Enter the solute:");
 		Scanner scan = new Scanner(System.in);
-		String solute = scan.nextLine();//´Ó¿ØÖÆÌ¨ÊäÈëÄ¿Â¼
+		String solute = scan.nextLine();//ï¿½Ó¿ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 		scan.close();
 		File file1 = new File(solute);
 		String []list;
 		list = file1.list();
-		java.text.SimpleDateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//½«Ê±¼ä×ª»»³É±ê×¼µÄÄêÔÂÈÕÊ±·ÖÃë
-		int num1 = 0;//¼ÇÂ¼ÎÄ¼ş¸öÊı
-		int num2 = 0;//¼ÇÂ¼ÎÄ¼ş¼Ğ¸öÊı
-		ArrayList<FileInformation> List = new ArrayList<FileInformation>();//´æ·ÅÎÄ¼şĞÅÏ¢µÄ¶ÓÁĞ
+		java.text.SimpleDateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//ï¿½ï¿½Ê±ï¿½ï¿½×ªï¿½ï¿½ï¿½É±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
+		int num1 = 0;//ï¿½ï¿½Â¼ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+		int num2 = 0;//ï¿½ï¿½Â¼ï¿½Ä¼ï¿½ï¿½Ğ¸ï¿½ï¿½ï¿½
+		ArrayList<FileInformation> List = new ArrayList<FileInformation>();//ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢ï¿½Ä¶ï¿½ï¿½ï¿½
 		for(int i = 0;i < list.length;i++){
 			//System.out.println(list[i]);
 			File file2 = new File(solute+"\\"+list[i]);
 			if(file2.exists()){
-				String dateTime=df.format(new Date(file2.lastModified()));//×ª»»ºóµÄ±ê×¼Ê±¼ä
+				String dateTime=df.format(new Date(file2.lastModified()));//×ªï¿½ï¿½ï¿½ï¿½Ä±ï¿½×¼Ê±ï¿½ï¿½
 				if(file2.isFile()){
 					num1++;
-					System.out.println(file2.getName() + "	ĞŞ¸ÄÈÕÆÚ£º" + dateTime + "	ÎÄ¼ş´óĞ¡£º" + file2.length() +"×Ö½Ú");
+					System.out.println(file2.getName() + "	ä¿®æ”¹æ—¥æœŸï¼š" + dateTime + "	å¤§å°ï¼š" + file2.length() +"å­—èŠ‚");
 				}
 				else{
 					num2++;
-					System.out.println(file2.getName() + "	ĞŞ¸ÄÈÕÆÚ£º" + dateTime);
-					FileInformation tmp = new FileInformation();//ÎÄ¼ş¼ĞÁÙÊ±¶ÔÏótmp
+					System.out.println(file2.getName() + "	ä¿®æ”¹æ—¥æœŸï¼š" + dateTime);
+					FileInformation tmp = new FileInformation();//ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½tmp
 					tmp.setFolder(file2.getName(),dateTime);
-					List.add(tmp);//ListÏÈÌí¼ÓÎÄ¼ş¼Ğ¶ÔÏó
+					List.add(tmp);//Listï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½
 				}
 			}
 			else{
-				System.out.println("ÎÄ¼ş»òÎÄ¼ş¼Ğ²»´æÔÚ£¡");
+				System.out.println("file do not exist!");
 			}	
 		}
-		
+		System.out.println("");
 		for(int i = 0;i < list.length;i++){
 			File file2 = new File(solute+"\\"+list[i]);
 			String dateTime=df.format(new Date(file2.lastModified()));
 			if(file2.isFile()){
-				FileInformation tmp = new FileInformation();//ÎÄ¼şÁÙÊ±¶ÔÏótmp
+				FileInformation tmp = new FileInformation();//ï¿½Ä¼ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½tmp
 				tmp.setFile(file2.getName(),dateTime,file2.length());
-				List.add(tmp);//ListºóÌí¼ÓÎÄ¼ş¶ÔÏó
+				List.add(tmp);//Listï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 		}
-		Collections.sort(List.subList(0, num2 - 1));//Ö¸¶¨ListÇ°ÃæÎÄ¼ş¼Ğ²¿·Ö½øĞĞÅÅĞò
-		Collections.sort(List.subList(num2, num2 + num1 - 1));//Ö¸¶¨ListºóÃæÎÄ¼ş²¿·Ö½øĞĞÅÅĞò
-		/*for(int i = 0;i < num1 + num2;i++){
+		Collections.sort(List.subList(0, num2 - 1));//Ö¸ï¿½ï¿½ListÇ°ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ğ²ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		Collections.sort(List.subList(num2, num2 + num1 - 1));//Ö¸ï¿½ï¿½Listï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		for(int i = 0;i < num1 + num2;i++){
 			FileInformation tmp = new FileInformation();
 			tmp = List.get(i);
 			System.out.println(tmp.getName());
-		}*/
+		}
 		
-		File file3 = new File("information.txt");//ÓÃÓÚ±£´æÄ¿Â¼µÄĞÅÏ¢
+		File file3 = new File("information.txt");//ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½Ï¢
 		try{
 			FileWriter fw = new FileWriter(file3);
-			for(int i = 0;i < num2;i++){//ÏÈ½«ÎÄ¼ş¼ĞĞÅÏ¢Ğ´ÈëÎÄ¼ş
+			for(int i = 0;i < num2;i++){//ï¿½È½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ğ´ï¿½ï¿½ï¿½Ä¼ï¿½
 				FileInformation tmp = new FileInformation();
 				tmp = List.get(i);
-				String str = tmp.getName() + " ĞŞ¸ÄÈÕÆÚ:" + tmp.getDate() + "\r\n";
+				String str = tmp.getName() + " ä¿®æ”¹æ—¥æœŸï¼š:" + tmp.getDate() + "\r\n";
 				fw.write(str);
 			}
-			for(int j = num2;j < List.size();j++){//ºó°ÑÎÄ¼şĞÅÏ¢Ğ´ÈëÎÄ¼ş
+			for(int j = num2;j < List.size();j++){//ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢Ğ´ï¿½ï¿½ï¿½Ä¼ï¿½
 				FileInformation tmp = new FileInformation();
 				tmp = List.get(j);
-				String str = tmp.getName() + " ĞŞ¸ÄÈÕÆÚ:" + tmp.getDate() + " ´óĞ¡:" + tmp.getLength() + "×Ö½Ú" + "\r\n";
+				String str = tmp.getName() + " ä¿®æ”¹æ—¥æœŸï¼š" + tmp.getDate() + " 	å¤§å°ï¼š" + tmp.getLength() + "å­—èŠ‚" + "\r\n";
 				fw.write(str);
 			}
 			fw.close();

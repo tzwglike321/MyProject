@@ -1,0 +1,21 @@
+package fjnu;
+
+import java.io.*;
+import java.util.*;
+
+public class FlattenStudent {
+	public static void main(String []args){
+		File file = new File("list.txt");
+		ArrayList<Student> List = new ArrayList<Student>();
+		try{
+			FileInputStream finS = new FileInputStream(file);
+			DataInputStream inDataFile = new DataInputStream(finS);
+			//inDataFile.rea
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+
+		
+	}
+}

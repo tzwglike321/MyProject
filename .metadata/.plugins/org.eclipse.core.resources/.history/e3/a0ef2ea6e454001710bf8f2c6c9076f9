@@ -1,0 +1,198 @@
+package antColony;
+
+import java.util.Random;
+
+//Console类是控制类，用来调用一切
+//SolutionSpace类是解空间类，用来 存储解空间并定义相关操作
+//Continuous类是连续R类，只存储对连续变量的操作
+//Ordinal类是有序O类，只存储对有序离散变量的操作
+//Categorical类是分类C类，只存储对分类离散变量的操作
+public class Console {
+	//演变次数
+	public static int times = 0;
+	//停机条件
+	public static boolean Condition(int generation,SolutionSpace space,double a,int num,double []BeforeBest){ //终止条件，自定义
+		if(generation == 0){
+			return true;
+		}
+	//	if(Math.abs(space.f(space.GetLine(0)) - space.f(LastBest))< a){
+		if(space.f(BeforeBest) - space.f(space.GetLine(0)) < a){
+			times++;
+		}else
+			times = 0;
+		if(times > num)
+			return false;
+		else
+			return true;
+	}
+	public static void main(String[] args) {
+		int Rn = 3,On = 3,Cn = 3,k = 90,m = 50;	//Rn、On、Cn是连续、有序、分类的维度，k是解空间大小，m是蚂蚁个数
+		double q = 0.05099,e = 0.6795,a = 0.00000001;//q、e是参数，a是解间的差值
+		int num = 100;//是迭代次数
+		double []BeforeBest = new double[Rn + On + Cn];	//上一个最佳解空间
+		int Rstart = -3,Rend = 7;						//连续变量区间
+	/*	int []ValueNumO = {4};			//有序取值个数
+		double [][]ValueO = {{-1,3,7,-2}};	//有序取值范围
+		int MaxNumO = 4;				//有序最大范围
+		int []ValueNumC ={3};			//分类长度
+		double[][]ValueC = {{1,5,6}};	//分类取值
+		int MaxNumC = 3;				//分类最大*/
+		int variable = 100;
+		double step =( (double)Rend -  (double)Rstart) / (double)variable;
+		int []ValueNumO = new int[On];
+		int MaxNumO = 100;
+		double [][]ValueO = new double[On][variable];
+		for(int i = 0;i < On;i++ ){
+			ValueNumO[i] = variable;
+		}
+		double zeroNum = (-Rstart)/step;
+//		System.out.println(step);
+//		System.out.println((int)zeroNum);
+		for(int i = 0;i < On;i++){
+			for(int j = 0;j < variable;j++){
+			/*	if(i == 0 && j == 0){
+					ValueO[i][j] = Rstart;
+					continue;
+				}*/
+				ValueO[i][j] = Rstart + step *j;
+			}
+		}
+		/*
+		for(int i = 0;i < On;i++){
+			for(int j = 0;j < ValueNumO[i];j++){
+				System.out.println(j + ":" + ValueO[i][j]);
+			}
+		}*/
+		int []ValueNumC = new int[Cn];
+		int MaxNumC = 100;
+		double [][]ValueC = new double[Cn][variable];
+		for(int i = 0;i < Cn;i++){
+			ValueNumC[i] = variable;
+		}
+		Random ran = new Random();
+		for(int i = 0;i < Cn;i++){
+			for(int j = 0;j < variable;j++){
+				if(i == 0 && j == 0){
+					ValueC[i][j] = 0;
+					continue;
+				}
+				ValueC[i][j] = ran.nextDouble();
+			}
+		}/*
+		for(int i = 0;i < On;i++){
+			
+			for(int j = 0;j < ValueNumC[i];j++){
+				System.out.println(j + ":" + ValueC[i][j]);
+			}
+		}*/
+		
+		
+		
+		// TODO Auto-generated method stub
+		//定义解空间对象
+		System.out.println("R:O = 3:3");
+		for(int j = 0;j < 50;j++){
+		SolutionSpace space = new SolutionSpace(1,1,3,k,m,q,e,Rstart,Rend,
+				ValueNumO,ValueO,MaxNumO,MaxNumC,ValueNumC,ValueC);  
+		//space读取初始解空间数据
+		space.InitiliazeSpace();
+		space.Sort();
+		
+		
+			int generation = 0;
+			while(generation <200000){	
+				BeforeBest = space.GetLine(0);
+				//m只蚂蚁生成m条新纪录
+				for(int i = 0;i < m;i++){
+					//R、O、C三类变量的生成方法存进了这个方法里
+					space.Construct();
+				}
+				//排序后取前k个最佳
+				space.Sort();
+				space.Best(k);
+				if(generation == 199999)
+					space.PrintGeneration(generation);
+				generation++;
+				}
+		}
+		System.out.println("R:C = 3:3");
+		
+		for(int j = 0;j < 50;j++){
+			SolutionSpace space = new SolutionSpace(3,0,3,k,m,q,e,Rstart,Rend,
+					ValueNumO,ValueO,MaxNumO,MaxNumC,ValueNumC,ValueC);  
+			//space读取初始解空间数据
+			space.InitiliazeSpace();
+			space.Sort();
+			
+			
+				int generation = 0;
+				while( generation <200000){	
+					BeforeBest = space.GetLine(0);
+					//m只蚂蚁生成m条新纪录
+					for(int i = 0;i < m;i++){
+						//R、O、C三类变量的生成方法存进了这个方法里
+						space.Construct();
+					}
+					//排序后取前k个最佳
+					space.Sort();
+					space.Best(k);
+					if(generation == 199999)
+						space.PrintGeneration(generation);
+					generation++;
+					}
+			}
+		System.out.println("R:O:C = 3:1:2");
+		
+		for(int j = 0;j < 50;j++){
+			SolutionSpace space = new SolutionSpace(3,1,2,k,m,q,e,Rstart,Rend,
+					ValueNumO,ValueO,MaxNumO,MaxNumC,ValueNumC,ValueC);  
+			//space读取初始解空间数据
+			space.InitiliazeSpace();
+			space.Sort();
+			
+			
+				int generation = 0;
+				while(generation <200000){	
+					BeforeBest = space.GetLine(0);
+					//m只蚂蚁生成m条新纪录
+					for(int i = 0;i < m;i++){
+						//R、O、C三类变量的生成方法存进了这个方法里
+						space.Construct();
+					}
+					//排序后取前k个最佳
+					space.Sort();
+					space.Best(k);
+					if(generation == 199999)
+						space.PrintGeneration(generation);
+					generation++;
+					}
+			}
+System.out.println("R:O:C = 3:2:1");
+		
+		for(int j = 0;j < 50;j++){
+			SolutionSpace space = new SolutionSpace(3,2,1,k,m,q,e,Rstart,Rend,
+					ValueNumO,ValueO,MaxNumO,MaxNumC,ValueNumC,ValueC);  
+			//space读取初始解空间数据
+			space.InitiliazeSpace();
+			space.Sort();
+			
+			
+				int generation = 0;
+				while( generation <200000){	
+					BeforeBest = space.GetLine(0);
+					//m只蚂蚁生成m条新纪录
+					for(int i = 0;i < m;i++){
+						//R、O、C三类变量的生成方法存进了这个方法里
+						space.Construct();
+					}
+					//排序后取前k个最佳
+					space.Sort();
+					space.Best(k);
+					if(generation == 199999)
+						space.PrintGeneration(generation);
+					generation++;
+					}
+			}
+	//	space.print();
+	}
+}
