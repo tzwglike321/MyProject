@@ -2,6 +2,7 @@ package FCFS;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.io.*;
 
 public class OneQueue {
 	int [][]getTask;//获取文件里面任务信息
@@ -33,18 +34,38 @@ public class OneQueue {
 	}
 	
 	public void showQueue(){
-		DecimalFormat df = new DecimalFormat( "0.00");
-		System.out.println("taskID"+" "+"开始时间"+" "+"服务时间"+" "+"完成时间"+" "+"周转时间"+" "+"带权周转时间");
-		for(int i = 0;i < list1.size();i++){
-			Task tmp = new Task();
-			tmp = list1.get(i);
-			System.out.println(tmp.taskID+"	"  
-					   +tmp.startingTime+"   "
-					   +tmp.serviceTime+"	    "
-					   +tmp.finishingTime+"	  "
-					   +tmp.turnAroundTime+"    "
-					   +df.format(tmp.weightTurnAround));
+		//DecimalFormat df = new DecimalFormat( "0.00");
+		File FCFS_Data = new File("FCFS_One_Queue.txt");
+		try{
+			FileWriter fw = new FileWriter(FCFS_Data);
+			String str = "\t\t\t\t\tFCFS One Queue";
+			System.out.println(str);
+			fw.write(str+"\r\n");
+			String str1 ="TaskID"+"\t\t"
+					+"到达时间"+"\t\t"
+					+"服务时间"+"\t\t"
+					+"开始时间"+"\t\t"
+					+"完成时间"+"\t\t"
+					+"周转时间"+"\t\t"+"带权周转时间";
+			System.out.println(str1);
+			fw.write(str1+"\r\n");
+			for(int i = 0;i < list1.size();i++){
+				Task tmp = new Task();
+				tmp = list1.get(i);
+				String str2 =tmp.getTaskID()+"\t\t"+tmp.getArrivalTime()+"\t\t"
+						   +tmp.getServiceTime()+"\t\t"
+						   +tmp.getStartTime()+"\t\t"
+						   +tmp.getFinishTime()+"\t\t"
+						   +tmp.getTurnAriundTime()+"\t\t"
+						   +tmp.getWeightTurnAround();
+				System.out.println(str2);
+				fw.write(str2+"\r\n");
+			}
+			fw.close();
+		}catch(Exception e){
+			e.printStackTrace();
 		}
+		
 	}
 	
 	/*public static void main(String []args){

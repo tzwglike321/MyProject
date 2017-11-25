@@ -1,14 +1,18 @@
 package SJF;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collections;  
+import java.util.Collections;
 import java.util.Comparator;
+import FCFS.SortTask;
 
 public class OneQueue {
 	int [][]getTask;//获取文件里面任务信息
 	InOutFile file1;
 	ArrayList<Task> list1 = new ArrayList<Task>();
+	ArrayList<SortTask> list2 = new ArrayList<SortTask>();
 	
 	public void listAdd(){//arraylist获取task队列
 		file1 = new InOutFile();
@@ -42,27 +46,58 @@ public class OneQueue {
 		}
 	}
 	
-	public void showQueue(){
-		DecimalFormat df = new DecimalFormat( "0.00");
-		System.out.println("taskID"+" "+"开始时间"+" "+"服务时间"+" "+"完成时间"+" "+"周转时间"+" "+"带权周转时间");
+	public void SortOneQueue(){
 		for(int i = 0;i < list1.size();i++){
-			Task tmp = new Task();
-			tmp = list1.get(i);
-			System.out.println(tmp.taskID+"	"  
-					   +tmp.startingTime+"   "
-					   +tmp.serviceTime+"	"
-					   +tmp.finishingTime+"	"
-					   +tmp.turnAroundTime+"    "
-					   +df.format(tmp.weightTurnAround));
+			SortTask st = new SortTask();
+			Task t = list1.get(i);
+			st.setValue(t.getTaskID(), t.getArrivalTime(), t.getServiceTime(), t.getStartTime(), t.getFinishTime(), t.getTurnAriundTime(), t.getWeightTurnAround());
+			list2.add(st);
 		}
+		Collections.sort(list2);
 	}
 	
-	/*public static void main(String []args){
+	public void showQueue(){
+		//DecimalFormat df = new DecimalFormat( "0.00");
+		File SJF_Data = new File("SJF_One_Queue.txt");
+		try{
+			FileWriter fw = new FileWriter(SJF_Data);
+			String str = "\t\t\t\t\tSJF One Queue";
+			System.out.println(str);
+			fw.write(str+"\r\n");
+			String str1 ="TaskID"+"\t\t"
+					+"到达时间"+"\t\t"
+					+"服务时间"+"\t\t"
+					+"开始时间"+"\t\t"
+					+"完成时间"+"\t\t"
+					+"周转时间"+"\t\t"+"带权周转时间";
+			System.out.println(str1);
+			fw.write(str1+"\r\n");
+			for(int i = 0;i < list2.size();i++){
+				SortTask tmp = new SortTask();
+				tmp = list2.get(i);
+				String str2 =tmp.getTaskID()+"\t\t"+tmp.getArrivalTime()+"\t\t"
+						   +tmp.getServiceTime()+"\t\t"
+						   +tmp.getStartTime()+"\t\t"
+						   +tmp.getFinishTime()+"\t\t"
+						   +tmp.getTurnAriundTime()+"\t\t"
+						   +tmp.getWeightTurnAround();
+				System.out.println(str2);
+				fw.write(str2+"\r\n");
+			}
+			fw.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void main(String []args){
 		OneQueue test = new OneQueue();
 		test.listAdd();
 		test.beginQueue();
+		test.SortOneQueue();
 		test.showQueue();
-	}*/
+	}
 }
 
 

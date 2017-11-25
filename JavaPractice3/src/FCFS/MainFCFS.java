@@ -9,6 +9,7 @@ public class MainFCFS {
 		TwoQueue queue2 = new TwoQueue();
 		queue2.listAdd();
 		queue2.beginTwoQueue();
+		queue2.sortTwoQueue();
 		queue2.showQueue();
 	}
 }

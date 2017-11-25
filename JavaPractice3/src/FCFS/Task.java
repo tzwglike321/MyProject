@@ -21,4 +21,31 @@ public class Task {
 		turnAroundTime = finishingTime -arrivalTime;
 		weightTurnAround = turnAroundTime * 1.0 / serviceTime;
 	}
+	
+	public int getTaskID(){
+		return this.taskID;
+	}
+	
+	public int getArrivalTime(){
+		return this.arrivalTime;
+	}
+	
+	public int getServiceTime(){
+		return this.serviceTime;
+	}
+	public int getStartTime(){
+		return this.startingTime;
+	}
+	
+	public int getFinishTime(){
+		return this.finishingTime;
+	}
+	
+	public int getTurnAriundTime(){
+		return this.turnAroundTime;
+	}
+	
+	public double getWeightTurnAround(){
+		return this.weightTurnAround;
+	}
 }
