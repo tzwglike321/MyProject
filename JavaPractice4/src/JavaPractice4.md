@@ -5,7 +5,7 @@
 > * 将src.txt文件内容复制到当前目录下dest.txt文件中
 > * 将dest.txt文件内容显示到屏幕上
 ## 运行结果截图
-* [基本IO操作](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice4_img/IO%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.png)
+* [基本IO操作](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice4_img/IOTest.png)
 # FileInformation:
 > * 用于存储文件信息
 > * 重载了以中文字符比较的compareTo函数
@@ -14,12 +14,12 @@
 > * 目录信息包括该目录下的所有文件和文件夹的列表。对于每个文件夹显示其名称，修改日期。对于每个文件显示其名称，修改日期和大小
 > * 目录的信息写出到文件中。注意，文件信息首先按类型分类，文件夹在前，文件在后，并且他们各自按照文件名字符串的顺序排序
 ## 运行结果截图
-* [获取系统的文件树1](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice4_img/%E6%96%87%E4%BB%B6%E6%A0%911.png)
-* [获取系统的文件树2](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice4_img/%E6%96%87%E4%BB%B6%E6%A0%912.png)
+* [获取系统的文件树1](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice4_img/FileTree1.png)
+* [获取系统的文件树2](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice4_img/FileTree2.png)
 # TestTime:
 > * 用带缓冲和不带缓冲的字符流实现文件复制，并比较耗时情况
 ## 运行结果截图
-* [IO时间比较](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice4_img/IO%E6%97%B6%E9%97%B4%E6%AF%94%E8%BE%83.png)
+* [IO时间比较](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice4_img/TestTime.png)
 # Student:
 > * 属性包括{studentID, name, sex} (学号，姓名，性别)
 > * 重载了以studentID比较的compareTo函数
@@ -33,5 +33,5 @@
 # MainStudent
 > * 调用FlattenStudent和InflateStudent实现Student对象序列化和反序列化，并将对象信息显示在控制台中
 ## 运行结果截图
-* [对象序列化1](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice4_img/%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%961.png)
-* [对象序列化2](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice4_img/%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%962.png)
+* [对象序列化1](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice4_img/Student1.png)
+* [对象序列化2](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice4_img/Student2.png)
