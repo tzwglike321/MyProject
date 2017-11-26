@@ -2,11 +2,11 @@ package fjnu;
 
 import java.io.*;
 
-public class TestTime {
+public class TestTime {//用带缓冲和不带缓冲的字符流实现文件复制，并比较耗时情况
 	public static void main(String []args){
 		
 		File file = new File("list.txt");
-		try{
+		try{//不带缓冲的字符流实现文件复制
 			File frFile = new File("FileReader.txt");
 			FileReader fr = new FileReader(file);
 			FileWriter fw = new FileWriter(frFile);
@@ -23,7 +23,7 @@ public class TestTime {
 			e1.printStackTrace();
 		}
 		
-		try{
+		try{//用带缓冲的字符流实现文件复制
 			File brFile = new File("BufferedReader.txt");
 			FileReader fr = new FileReader(file);
 			FileWriter fw = new FileWriter(brFile);

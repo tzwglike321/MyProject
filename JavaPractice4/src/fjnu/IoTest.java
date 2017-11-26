@@ -3,16 +3,16 @@ package fjnu;
 import java.io.*;
 import java.util.*;
 
-public class IoTest {//»ù±¾IO²Ù×÷
+public class IoTest {//åŸºæœ¬IOæ“ä½œ
 	public static void main(String []args){
 		File file1 = new File("src.txt");
 		File file2 = new File("dest.txt");
 		int a;
-		try{//´Ó¼üÅÌ½ÓÊÕ×Ö½ÚÁ÷£¬Ğ´Èëµ½µ±Ç°Ä¿Â¼ÏÂµÄsrc.txtÎÄ¼şÖĞ
+		try{
 			FileOutputStream fo1 = new FileOutputStream(file1);
 			System.out.println("Enter a line:");
-			while((a = System.in.read()) != '\n'){
-				fo1.write(a);
+			while((a = System.in.read()) != '\n'){//ä»é”®ç›˜æ¥æ”¶å­—èŠ‚æµ
+				fo1.write(a);//å†™å…¥åˆ°å½“å‰ç›®å½•ä¸‹çš„src.txtæ–‡ä»¶ä¸­
 			}
 			fo1.close(); 
 			
@@ -20,23 +20,22 @@ public class IoTest {//»ù±¾IO²Ù×÷
 			e1.printStackTrace();
 		}
 		int b;
-		try{//½«src.txtÎÄ¼şÄÚÈİ¸´ÖÆµ½µ±Ç°Ä¿Â¼ÏÂdest.txtÎÄ¼şÖĞ
+		try{
 			FileReader fr = new FileReader(file1);
 			FileWriter fw = new FileWriter(file2);
-			
 			while((b = fr.read()) != -1){
-				fw.write(b);
+				fw.write(b);//å°†src.txtæ–‡ä»¶å†…å®¹å¤åˆ¶åˆ°å½“å‰ç›®å½•ä¸‹dest.txtæ–‡ä»¶ä¸­
 			}
 			fr.close();
 			fw.close();
 		}catch(Exception e2){
 			e2.printStackTrace();
 		}
-		try{//½«dest.txtÎÄ¼şÄÚÈİÏÔÊ¾µ½ÆÁÄ»ÉÏ
+		try{//å°†dest.txtæ–‡ä»¶å†…å®¹æ˜¾ç¤ºåˆ°å±å¹•ä¸Š
 			FileInputStream fi1 = new FileInputStream(file2);
 			byte byt[] = new byte[1024];
 			int len = fi1.read(byt);
-			System.out.println("ÎÄ¼şÖĞµÄĞÅÏ¢ÊÇ£º"+new String(byt,0,len));
+			System.out.println(file2.getName()+":"+new String(byt,0,len));
 			fi1.close();
 		}catch(Exception e3){
 			e3.printStackTrace();
