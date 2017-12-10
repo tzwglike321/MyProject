@@ -5,13 +5,13 @@
 > * TextView实现白色边框，通过shape来设置背景图片，首先一个textview_border.xml文件放在drawable文件夹里面
 > * 为要添加边框的TextView添加一个background,android:background="@drawable/textview_border" 
 ## 界面截图
-* [linear_view] (https://github.com/tzwglike321/MyProject/blob/master/image/AndroidPractice1_img/linear.png)
+* [linear_view](https://github.com/tzwglike321/MyProject/blob/master/image/AndroidPractice1_img/linear.png)
 
 # relative_view
 > * relativelayout里面嵌套5个TextView
 > * 设置5个TextView的相对位置、大小、颜色
 ## 界面截图
-* [relative_view] (https://github.com/tzwglike321/MyProject/blob/master/image/AndroidPractice1_img/relative.png)
+* [relative_view](https://github.com/tzwglike321/MyProject/blob/master/image/AndroidPractice1_img/relative.png)
 
 # table_view
 > * tablelayout里面嵌套八个TableRow
@@ -19,4 +19,4 @@
 > * TableRow有两项的一个文字左浮动一个右浮动
 > * 分割线通过TableRow里面嵌套一个TextView，设置TextView的高度和TableRow的背景颜色实现
 ## 界面截图
-* [table_view] (https://github.com/tzwglike321/MyProject/blob/master/image/AndroidPractice1_img/table.png)
+* [table_view](https://github.com/tzwglike321/MyProject/blob/master/image/AndroidPractice1_img/table.png)
