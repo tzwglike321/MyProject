@@ -10,7 +10,7 @@
 * [主界面](https://github.com/tzwglike321/MyProject/blob/master/image/AndroidPractice3_img/S71227-221748.jpg)
 * [默认浏览器调用](https://github.com/tzwglike321/MyProject/blob/master/image/AndroidPractice3_img/S71227-221803.jpg)
 
-#BrowseAcyivity
+# BrowseAcyivity
 > * 获取并加载url，若url为空则默认打开百度
 
 # WebViewLoad
