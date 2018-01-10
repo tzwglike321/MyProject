@@ -1,6 +1,7 @@
 # AccessRight:
 > * 一个具有public、private、protected、default访问权限的数据成员和成员函数的class.
-
+## 运行结果截图
+* [AccessRight](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice2_img/accessright.png)
 # ChocolateBoiler:
 > * 实现单例模式模拟把巧克力和牛奶融合在一起生产巧克力棒的巧克力锅炉类. 
 > * ChocolateBoiler有两个私有的成员变量，empty和boiled，用来判断锅炉是否为空，以及锅炉内混合物是否已煮沸. 
@@ -11,3 +12,6 @@
 
 # Test:
 > * 调用ChocolateBoiler类测试生产巧克力棒过程.
+
+## 运行结果截图
+* [ChocolateBoiler](https://github.com/tzwglike321/MyProject/blob/master/image/JavaPractice2_img/chocolateboiler.png)
